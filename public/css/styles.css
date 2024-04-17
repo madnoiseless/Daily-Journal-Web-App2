@@ -1,0 +1,73 @@
+* {
+  font-family: "Roboto", sans-serif;
+  color: rgb(255, 255, 255);
+}
+
+button {
+  margin-top: 5px;
+  background-color: rgb(158, 200, 185);
+}
+
+.btn {
+  background-color: rgb(158, 200, 185);
+}
+
+.btn:hover {
+  background-color: rgb(27, 66, 66);
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background-color: rgb(9, 38, 53);
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background-color: rgb(27, 66, 66);
+  min-height: 50px;
+}
+
+#home {
+  background-color: rgb(158, 200, 185);
+  border-radius: 5px;
+}
+
+.form-control {
+  background-color: rgb(92, 131, 116);
+  color: rgb(255, 255, 255);
+}
+
+.form-control:focus {
+  background-color: rgb(27, 66, 66);
+  color: rgb(255, 255, 255);
+}
+
+footer {
+  min-height: 50px;
+}
+
+#main {
+  flex: 1;
+}
+
+.text-cadetBlue {
+  color: rgb(158, 200, 185);
+}
+a {
+  text-decoration: none;
+}
+
+.maintenance-post {
+  background-color: rgb(27, 66, 66);
+  height: 100%;
+}
+
+.card-body {
+  background-color: rgb(92, 131, 116);
+}
+
+h2 {
+  color: rgb(255, 255, 255);
+}
