@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const _ = require("lodash");
 const mongoose = require("mongoose");
+const os = require("os"); // Require the os module for network info
 
 const homeStartingContent =
   "Nulla pellentesque dignissim enim sit amet. At auctor urna nunc id cursus metus. At quis risus sed vulputate odio ut. Etiam tempor orci eu lobortis. Netus et malesuada fames ac turpis egestas. Suscipit tellus mauris a diam maecenas sed. Duis convallis convallis tellus id interdum velit laoreet. In ante metus dictum at tempor. Feugiat nibh sed pulvinar proin gravida hendrerit lectus a. Nec sagittis aliquam malesuada bibendum arcu vitae elementum. Proin libero nunc consequat interdum varius sit amet. Nunc lobortis mattis aliquam faucibus purus in massa tempor nec. Quam lacus suspendisse faucibus interdum posuere lorem. Porttitor lacus luctus accumsan tortor posuere. Vitae purus faucibus ornare suspendisse sed. Lacinia at quis risus sed vulputate odio. Non curabitur gravida arcu ac tortor dignissim convallis aenean.";
@@ -11,7 +12,24 @@ const aboutContent =
 const contactContent =
   "Auctor neque vitae tempus quam pellentesque nec nam. Id donec ultrices tincidunt arcu. Nunc sed blandit libero volutpat sed cras. Malesuada bibendum arcu vitae elementum curabitur vitae nunc sed velit. Ut tortor pretium viverra suspendisse. Tempor commodo ullamcorper a lacus vestibulum sed arcu non odio. A pellentesque sit amet porttitor eget dolor morbi non arcu. Proin nibh nisl condimentum id venenatis a condimentum vitae. Aliquam etiam erat velit scelerisque in dictum non consectetur a. Et molestie ac feugiat sed lectus vestibulum mattis ullamcorper. Aliquam purus sit amet luctus venenatis lectus magna fringilla. Duis convallis convallis tellus id. Magna fringilla urna porttitor rhoncus dolor purus. Tristique senectus et netus et malesuada fames. Aenean pharetra magna ac placerat vestibulum. Nibh tortor id aliquet lectus proin.";
 
+function getIpAddress() {
+  const networkInterfaces = os.networkInterfaces();
+  let localAddress = null;
+
+  // Loop through network interfaces and find a non-loopback IPv4 address
+  for (const name of Object.keys(networkInterfaces)) {
+    for (const address of networkInterfaces[name]) {
+      if (address.family === "IPv4" && !address.internal) {
+        localAddress = address.address;
+        break;
+      }
+    }
+  }
+  return localAddress;
+}
+
 const app = express();
+const host = getIpAddress();
 const port = 3000;
 mongoose.connect("mongodb://localhost:27017/BlogDB");
 
@@ -222,6 +240,6 @@ app.post("/delete", function (req, res) {
     });
 });
 
-app.listen(port, () => {
-  console.log(`Server started on port ${port}.`);
+app.listen(port, host, () => {
+  console.log(`Server started on http://${host}/${port}`);
 });
