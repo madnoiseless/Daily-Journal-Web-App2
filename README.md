@@ -18,7 +18,7 @@ This is a simple Node.js blog application that demonstrates basic CRUD (Create, 
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/user/repo.git
+git clone https://github.com/madnoiseless/Daily-Journal-Web-App2.git
 ```
 
 2. Install dependencies:
