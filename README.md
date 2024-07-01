@@ -1,69 +1,55 @@
-## Daily-Journal-Web-App2
+# Daily-Journal-Web-App2
 
-**Description:**
+This is a web application built using Node.js, Express, and MongoDB. The project aims to provide a platform for users to create, edit, and delete journal entries. The application uses EJS for templating and body-parser for handling form data.
 
-This is a simple Node.js blog application that demonstrates basic CRUD (Create, Read, Update, Delete) operations using Express, EJS, and MongoDB. It allows users to create, view, edit, and delete blog posts. The application also includes a limit on the number of posts that can be created to prevent excessive data storage in this demo project.
+## Getting Started
 
-**Features:**
+To get started with the project, follow these steps:
 
-* Create new blog posts
-* View a list of all blog posts
-* View individual blog posts
-* Edit existing blog posts
-* Delete blog posts
-* Limit the number of posts to prevent excessive data storage (demo project only)
-
-**Installation:**
-
-1. Clone the repository:
-
-```bash
-git clone https://github.com/madnoiseless/Daily-Journal-Web-App2.git
-```
-
-2. Install dependencies:
-
+1. Install the required dependencies by running the following command in your terminal:
 ```bash
 npm install
 ```
-
-**Usage:**
-
-1. Start the server:
-
+1. Set up a MongoDB database by running `mongod` in your terminal.
+2. Update the MongoDB connection string in `app.js` to match your local setup.
+3. Start the server by running the following command in your terminal:
 ```bash
 node app.js
 ```
+The server will start running on port 3000. You can access the application through your browser at `http://localhost:3000`.
 
-2. Open your web browser and navigate to:
+## Features
 
-```
-http://localhost:3000
-```
+* Home page with a starting content and a list of journal entries.
+* About page with static content.
+* Contact page with static content.
+* A form to compose new journal entries.
+* Maintenance page to view, edit, and delete journal entries.
 
-**Testing:**
+## Limitations
 
-1. Create some blog posts
-2. View the list of blog posts
-3. Click on a blog post to view it in detail
-4. Edit a blog post
-5. Delete a blog post
+The project has a self-imposed limit of 10 journal entries to prevent excessive content in this demo.
 
-**Contributing:**
+## Endpoints
 
-1. Fork the repository
-2. Make your changes
-3. Submit a pull request
+* `GET /` - Displays the home page with a list of journal entries.
+* `GET /about` - Displays the about page.
+* `GET /contact` - Displays the contact page.
+* `GET /compose` - Displays the form to compose new journal entries.
+* `POST /compose` - Saves a new journal entry to the database.
+* `GET /posts/:postId` - Displays a specific journal entry.
+* `GET /maintenance` - Displays the maintenance page with a list of journal entries.
+* `POST /edit` - Opens the form to edit a specific journal entry.
+* `POST /editSave` - Saves the changes to a specific journal entry.
+* `POST /delete` - Deletes a specific journal entry.
 
-**License:**
+## Technologies Used
 
-This project is licensed under the MIT License.
+* Node.js
+* Express
+* MongoDB
+* EJS (Embedded JavaScript Templates)
+* Body-parser
+* Lodash
 
-**Additional Notes:**
-
-* This is a demo project and is not intended for production use.
-* The application is designed to be simple and easy to understand.
-* More advanced features can be added as needed.
-* The application uses MongoDB for data storage.
-* The application uses EJS for templating.
-* The application uses Express for routing and middleware.
+Feel free to contribute to this project and improve its functionality. Don't forget to follow best practices and write clean, well-documented code.
